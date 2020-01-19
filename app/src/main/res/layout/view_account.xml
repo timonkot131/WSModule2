@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="110dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/account_type"
+        android:textSize="23sp"
+        android:layout_marginLeft="20dp"
+        android:text="Какой-то счет"/>
+
+    <LinearLayout
+
+        android:id="@+id/account_image_text_conteiner"
+        android:layout_width="193dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/account_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           />
+
+        <TextView
+            android:id="@+id/accout_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/account_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="999.999 рублей" />
+</RelativeLayout>

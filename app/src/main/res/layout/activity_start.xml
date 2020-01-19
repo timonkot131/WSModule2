@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/start_background"
+    tools:context=".StartActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/start_museum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/museum_100" />
+
+        <TextView
+            android:id="@+id/start_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@id/start_museum"
+            android:text="WorldSkills Bank"
+            android:textColor="#8b00ff"
+            android:textSize="40sp" />
+
+        <RelativeLayout
+            android:id="@+id/start_bankomats"
+            android:layout_width="368dp"
+            android:layout_height="104dp"
+            android:layout_below="@id/start_museum"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/start_icon_style"
+            android:paddingLeft="12dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="54dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pin_100" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toEndOf="@+id/imageView"
+                android:text="Отделения и банкоматы"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/start_currency"
+            android:layout_width="368dp"
+            android:layout_height="104dp"
+            android:layout_below="@id/start_bankomats"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/start_icon_style">
+
+            <ImageView
+                android:id="@+id/start_exchange"
+                android:layout_width="54dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/exchange_128" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="7dp"
+                android:layout_toRightOf="@id/start_exchange"
+                android:text="Курсы валют"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/start_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:text="Курсы валют"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="40dp"
+                android:text="USD"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@id/start_eur_text"
+                android:text="EUR"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/start_usd_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/textView3"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/start_eur_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="40dp"
+                android:textSize="17sp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="368dp"
+            android:layout_height="104dp"
+            android:layout_below="@id/start_currency"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/start_button_style"
+            android:text="ВОЙТИ"
+            android:textColor="#FFFFFF"
+            android:textSize="69px" />
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

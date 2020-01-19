@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WSModule2</string>
+    <string name="signin">Войти</string>
+    <string name="cancel">Отмена</string>
+</resources>

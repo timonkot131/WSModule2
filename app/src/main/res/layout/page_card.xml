@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="270dp"
+    android:background="@color/colorPurple">
+
+    <RelativeLayout
+        android:id="@+id/page_card_container"
+        android:layout_width="325dp"
+        android:layout_height="203dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/start_icon_style"
+        android:paddingBottom="25dp"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/page_card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/page_card_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/page_card_title"
+            android:layout_marginTop="24dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/page_card_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_alignParentBottom="true"/>
+
+        <ImageView
+            android:id="@+id/page_card_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/anket_50"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"  android:layout_height="70dp"
+    android:background="@color/colorWhiteSmoke">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="44dp"
+        android:layout_height="42dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/currency_valute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView2"
+        android:textSize="30sp"
+        android:text="TextView"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/currency_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/currency_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="18sp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/currency_sell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/currency_sell_arrow"
+        android:textSize="18sp"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/currency_buy_arrow"
+        android:layout_centerVertical="true"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toRightOf="@id/currency_buy"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/currency_sell_arrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+</RelativeLayout>
