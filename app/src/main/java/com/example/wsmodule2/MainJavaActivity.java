@@ -30,7 +30,7 @@ public class MainJavaActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.main_profile).setOnClickListener((View v) ->{
-
+            startActivity(new Intent(MainJavaActivity.this, ProfileActivity.class));
         });
 
         LinearLayout container = findViewById(R.id.main_container);
