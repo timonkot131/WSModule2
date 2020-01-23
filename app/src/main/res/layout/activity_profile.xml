@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Utilities.ProfileActivity">
 
+
     <LinearLayout
         android:id="@+id/profile_container"
         android:layout_width="match_parent"
@@ -13,11 +14,31 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="88dp"
         tools:layout_editor_absoluteY="35dp">
+        <LinearLayout
+            android:id="@+id/main_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:background="#1F1F1F"
+            android:layout_alignParentTop="true"
+            android:layoutDirection="rtl"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/main_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/administrator_80" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Button"
+            android:background="@drawable/profilebuton_selector"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
