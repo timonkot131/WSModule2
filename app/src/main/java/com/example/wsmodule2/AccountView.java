@@ -53,7 +53,6 @@ public class AccountView extends RelativeLayout {
         Bitmap bitmap = account.getImage();
         if(bitmap!=null){
             LayoutParams params = new LayoutParams( 30, 30);
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
             imageView.setImageBitmap(bitmap);
         }
 

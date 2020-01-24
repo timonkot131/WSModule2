@@ -14,7 +14,8 @@
         <activity android:name=".ProfileActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".Utilities.ProfileActivity" />
-        <activity android:name=".CardsActivity" />
+        <activity android:name=".CardsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".MainJavaActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

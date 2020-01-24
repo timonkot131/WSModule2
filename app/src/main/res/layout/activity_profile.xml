@@ -38,7 +38,46 @@
             android:id="@+id/profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:paddingLeft="10dp"
+            android:textAlignment="textStart"
+            android:text="Изменение пароля"
+            android:textColor="#000000"
+            android:background="@drawable/profilebuton_selector"/>
+        <Button
+            android:id="@+id/profile2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:text="Изменение логина"
+            android:background="@drawable/profilebuton_selector"/>
+        <Button
+            android:id="@+id/profile3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:text="История посещений"
+            android:background="@drawable/profilebuton_selector"/>
+        <Button
+            android:id="@+id/profile4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:text="Информация о приложении"
+            android:background="@drawable/profilebuton_selector"/>
+        <Button
+            android:id="@+id/profile5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:text="Выход"
             android:background="@drawable/profilebuton_selector"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

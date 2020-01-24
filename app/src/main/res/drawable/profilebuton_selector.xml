@@ -15,7 +15,7 @@
 
     <item android:state_last="true"  android:state_pressed="false">
       <shape android:shape="rectangle">
-          <solid android:color="#FFFFFF"/>
+          <solid android:color="#776262"/>
       </shape>
     </item>
 

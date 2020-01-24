@@ -46,7 +46,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_text_style"
+                    android:textColor="#888888"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="25dp"
+                    android:paddingLeft="20dp"
+                    android:text="МОИ КАРТЫ"
+                    />
+                <LinearLayout
+                    android:id="@+id/main_cards_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_text_style"
+                    android:textColor="#888888"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="25dp"
+                    android:paddingLeft="20dp"
+                    android:text="МОИ СЧЕТА"/>
+                <LinearLayout
+                    android:id="@+id/main_bills_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_text_style"
+                    android:textColor="#888888"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="25dp"
+                    android:paddingLeft="20dp"
+                    android:text="МОИ КРЕДИТЫ"/>
+                <LinearLayout
+                    android:id="@+id/main_credits_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
             </LinearLayout>
+
         </ScrollView>
 
         <LinearLayout
