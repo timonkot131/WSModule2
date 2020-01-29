@@ -11,11 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".InfoActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Utilities.ProfileActivity" />
-        <activity android:name=".CardsActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".CardsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".MainJavaActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
