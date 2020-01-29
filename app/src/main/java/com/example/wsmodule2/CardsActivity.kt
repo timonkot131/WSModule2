@@ -7,8 +7,10 @@ import android.os.Bundle
 import android.widget.Button
 
 import com.example.wsmodule2.Adapters.CardViewPagerAdapter
+import com.example.wsmodule2.Utilities.ChangerAlert
 
 class CardsActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,18 @@ class CardsActivity : AppCompatActivity() {
         val pager = findViewById<ViewPager>(R.id.card_viewpager)
         pager.adapter = CardViewPagerAdapter(applicationContext, StartActivity.cards)
         pager.currentItem = position
+
+        findViewById<Button>(R.id.cards_button2).setOnClickListener {
+            ChangerAlert.CreateAlert(this,"Блокировка карты","Вы уверены что хотите заблокировать карту?", "Пароль", "Заблокировать") {
+                diag, id ->
+            }
+        }
+
+        findViewById<Button>(R.id.cards_button3).setOnClickListener {
+            ChangerAlert.CreateAlert(this,"Переименование карты","Введите новое название", "Имя" ) {
+                diag, id ->
+            }
+        }
 
     }
 }

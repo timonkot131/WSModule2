@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/diag_title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Авторизация"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/diag_title2"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="Введите ваш логин и пароль"
+        android:textAlignment="textEnd"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/diag_msg"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="#FFFFFF"/>
+
 
 </LinearLayout>

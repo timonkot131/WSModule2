@@ -34,6 +34,7 @@ class StartActivity : AppCompatActivity(), OnAuthGetListener, DialogInterface.On
         currentDate.text = dateFormat.format(Calendar.getInstance().time)
         val usd = findViewById<TextView>(R.id.start_usd_text)
         val eur = findViewById<TextView>(R.id.start_eur_text)
+
         GetValuteTask(Calendar.getInstance().time).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, { currentDateList: List<CurrencyData> ->
             for (currencyData in currentDateList) {
                 if (currencyData.char_code == "USD") {
@@ -44,16 +45,19 @@ class StartActivity : AppCompatActivity(), OnAuthGetListener, DialogInterface.On
                 }
             }
         })
+
         val bankomats = findViewById<RelativeLayout>(R.id.start_bankomats)
         bankomats.setOnClickListener { v: View? ->
             val intent = Intent(this@StartActivity, BankomatsActivity::class.java)
             startActivity(intent)
         }
+
         val currencies = findViewById<RelativeLayout>(R.id.start_currency)
         currencies.setOnClickListener { v: View? ->
             val intent = Intent(this@StartActivity, CurrenciesActivity::class.java)
             startActivity(intent)
         }
+
         val enter = findViewById<Button>(R.id.start_button)
         enter.setOnClickListener { v: View? ->
             val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.Theme_AppCompat_Dialog))
@@ -61,7 +65,7 @@ class StartActivity : AppCompatActivity(), OnAuthGetListener, DialogInterface.On
             builder.setView(inflater.inflate(R.layout.alert_signin, null))
                     .setPositiveButton(R.string.signin, this)
                     .setNegativeButton(R.string.cancel) { diag: DialogInterface, id: Int -> diag.cancel() }
-            val dialog = builder.create()
+            val dialog: AlertDialog = builder.create()
             dialog.show()
             dialogBox = dialog
         }

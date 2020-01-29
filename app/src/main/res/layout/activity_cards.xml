@@ -53,7 +53,7 @@
                 android:paddingLeft="10dp"
                 android:textAlignment="textStart"
                 android:textColor="#0775A7"
-                android:text="Изменение пароля"
+                android:text="История операций"
                 android:background="@drawable/profilebuton_selector"/>
             <Button
                 android:id="@+id/cards_button2"
