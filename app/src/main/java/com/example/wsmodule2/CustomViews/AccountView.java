@@ -1,4 +1,4 @@
-package com.example.wsmodule2;
+package com.example.wsmodule2.CustomViews;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.wsmodule2.Abstractions.ICardable;
+import com.example.wsmodule2.R;
 
 
 public class AccountView extends RelativeLayout {
