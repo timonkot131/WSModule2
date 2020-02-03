@@ -12,12 +12,14 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        findViewById<Button>(R.id.profile_button4).setOnClickListener {v -> startActivity(Intent(this@ProfileActivity, InfoActivity::class.java))}
+        findViewById<Button>(R.id.profile_button4).setOnClickListener { startActivity(Intent(this@ProfileActivity, InfoActivity::class.java))}
 
-        findViewById<Button>(R.id.profile_button).setOnClickListener {v->
+        findViewById<Button>(R.id.profile_button).setOnClickListener {
             ChangerAlert.CreateAlert(this, "Изменение пароля", "Введите новый пароль", "Пароль") {diag, id ->  } }
 
-        findViewById<Button>(R.id.profile_button2).setOnClickListener {v->
+        findViewById<Button>(R.id.profile_button2).setOnClickListener {
             ChangerAlert.CreateAlert(this, "Изменение логина", "Введите новый логин", "Логин") {diag, id ->  } }
+
+        findViewById<Button>(R.id.profile_button3).setOnClickListener { startActivity(Intent(this@ProfileActivity, VisitActivity::class.java))}
     }
 }
