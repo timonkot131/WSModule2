@@ -14,18 +14,20 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import com.example.wsmodule2.CallBacks.OnAuthGetListener
+import com.example.wsmodule2.POJO.AccountData
 import com.example.wsmodule2.POJO.CardData
 import com.example.wsmodule2.POJO.CurrencyData
 import com.example.wsmodule2.StartActivity
 import com.example.wsmodule2.Utilities.GrandToster
 import com.example.wsmodule2.tasks.GetValuteTask
 import com.example.wsmodule2.tasks.PostLoginTask
+import kotlinx.android.synthetic.main.alert_signin.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 class StartActivity : AppCompatActivity(), OnAuthGetListener, DialogInterface.OnClickListener {
-    private var dialogBox: AppCompatDialog? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
@@ -67,13 +69,12 @@ class StartActivity : AppCompatActivity(), OnAuthGetListener, DialogInterface.On
                     .setNegativeButton(R.string.cancel) { diag: DialogInterface, id: Int -> diag.cancel() }
             val dialog: AlertDialog = builder.create()
             dialog.show()
-            dialogBox = dialog
         }
     }
 
     override fun onClick(dialog: DialogInterface, which: Int) {
-        val login = dialogBox!!.findViewById<EditText>(R.id.diag_login)
-        val pwd = dialogBox!!.findViewById<EditText>(R.id.diag_pwd)
+        val compatDialog = dialog as AppCompatDialog
+
       //  PostLoginTask(login!!.text.toString(), pwd!!.text.toString())
       //          .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, this)
         token = "3##EEddas#@@DDSDS"
@@ -87,7 +88,7 @@ class StartActivity : AppCompatActivity(), OnAuthGetListener, DialogInterface.On
             startActivity(Intent(this@StartActivity, MainJavaActivity::class.java))
         } else {
             GrandToster.MakeToast("Неправильно ввели пароль", applicationContext)
-        }
+               }
     }
 
     companion object {
@@ -96,5 +97,7 @@ class StartActivity : AppCompatActivity(), OnAuthGetListener, DialogInterface.On
         var token: String? = null
         @JvmField
         var cards: ArrayList<CardData> = ArrayList<CardData>()
+        @JvmField
+        var accounts: ArrayList<AccountData> = ArrayList<AccountData>()
     }
 }

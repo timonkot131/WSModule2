@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"  android:layout_height="270dp"
+    android:background="@color/colorPurple" >
+
+    <TextView
+        android:id="@+id/page_useraccount_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Текущий счет"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/page_useraccount_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="000,00 рублей"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/page_useraccount_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_alignParentBottom="true"
+        android:text="233213113323223"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
+</RelativeLayout>

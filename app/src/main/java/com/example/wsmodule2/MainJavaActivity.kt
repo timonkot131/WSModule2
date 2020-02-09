@@ -10,10 +10,13 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Space
 import androidx.appcompat.app.AppCompatActivity
+import com.addSpace
 import com.example.wsmodule2.CustomViews.AccountView
 import com.example.wsmodule2.POJO.AccountData
 import com.example.wsmodule2.POJO.CardData
 import com.example.wsmodule2.POJO.CreditData
+import com.example.wsmodule2.StartActivity.Companion.accounts
+import com.example.wsmodule2.StartActivity.Companion.cards
 import com.example.wsmodule2.tasks.DeleteLogoutTask
 
 class MainJavaActivity : AppCompatActivity() {
@@ -35,47 +38,51 @@ class MainJavaActivity : AppCompatActivity() {
         )
 
         val card_container = findViewById<LinearLayout>(R.id.main_cards_container)
-        val bill_container = findViewById<LinearLayout>(R.id.main_bills_container)
+        val accountContainer = findViewById<LinearLayout>(R.id.main_bills_container)
         val credit_container = findViewById<LinearLayout>(R.id.main_credits_container)
 
+        //adding cards
         for (i in 0..2) {
             val cardData = CardData("22223144444", "Дебетовая карта $i", bmp, 33.3333)
 
             val accountView = AccountView(applicationContext,
                     cardData)
             accountView.setBackgroundColor(resources.getColor(R.color.colorWhiteSmoke))
-            accountView.tag = cardData
 
 
-            card_container.addView(accountView)
-
-            val space = Space(applicationContext)
-            space.layoutParams = spaceParams
-
-            card_container.addView(space)
-
-            val accountView1: AccountView = container.findViewWithTag(cardData)
-            StartActivity.cards.add(cardData)
-
-            accountView1.setOnClickListener { v: View? ->
+            accountView.setOnClickListener { v: View? ->
                 val intent = Intent(this@MainJavaActivity, CardsActivity::class.java)
                 intent.putExtra("card_list_index", StartActivity.cards.indexOf(cardData))
                 startActivity(intent)
             }
+
+            card_container.addView(accountView)
+            card_container.addSpace(10)
+
+            cards.add(cardData)
         }
 
+        //adding accounts
         for (i in 0..2) {
+            val accountData = AccountData("22223144444", "Дебетовая карта", 33.3333)
+
             val accountView = AccountView(applicationContext,
-                    AccountData("22223144444", "Дебетовая карта", 33.3333))
+                   accountData)
             accountView.setBackgroundColor(resources.getColor(R.color.colorWhiteSmoke))
 
-            bill_container.addView(accountView)
+            accountView.setOnClickListener { view ->
+                val intent = Intent(this@MainJavaActivity, UserAccountsActivity::class.java)
+                intent.putExtra("useraccount_list_index", accounts.indexOf(accountData))
+                startActivity(intent)
+            }
 
-            val space = Space(applicationContext)
-            space.layoutParams = spaceParams
-            bill_container.addView(space)
+            accountContainer.addView(accountView)
+            accountContainer.addSpace(10)
+
+            accounts.add(accountData)
         }
 
+        //adding credits
         for (i in 0..2) {
             val accountView = AccountView(applicationContext,
                     CreditData("Платеж аааа", "Дебетовая карта", 33.3333))
@@ -83,23 +90,8 @@ class MainJavaActivity : AppCompatActivity() {
 
             credit_container.addView(accountView)
 
-            val space = Space(applicationContext)
-            space.layoutParams = spaceParams
-            credit_container.addView(space)
+            credit_container.addSpace(10)
         }
 
-        var s = isRight{
-          it == 3
-        }
-
-        Log.i("ss", s.toString())
-
-    }
-
-    fun isRight(a1: (Int) -> Boolean) : Boolean{
-        if(a1.invoke(3)){
-            return true
-        }
-        return false
     }
 }

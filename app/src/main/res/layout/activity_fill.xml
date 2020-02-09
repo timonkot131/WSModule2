@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FillActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPurple">
+        <include layout="@layout/back_topmenu"/>
+        <LinearLayout
+            android:layout_below="@+id/back_topmenu"
+            android:id="@+id/fill_buttons"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ToggleButton
+                android:id="@+id/fill_card_toogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fill_tooglebutton_selector"
+                android:text="С карты"
+                android:textOff="С карты"
+                android:textOn="С карты" />
+
+            <ToggleButton
+                android:id="@+id/fill_account_toogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fill_tooglebutton_selector"
+                android:text="Со счета"
+                android:textOff="Со счета"
+                android:textOn="Со счета" />
+        </LinearLayout>
+        <ScrollView
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fill_buttons"
+            android:layout_above="@+id/main_bottombar">
+            <LinearLayout
+
+                android:id="@+id/fill_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+        </ScrollView>
+        <include layout="@layout/main_botmenu"/>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

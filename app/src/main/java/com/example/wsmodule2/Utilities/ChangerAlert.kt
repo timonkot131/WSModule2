@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDialog

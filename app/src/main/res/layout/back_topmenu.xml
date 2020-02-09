@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/back_topmenu"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#1F1F1F"
+    android:layout_alignParentTop="true"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+    <ImageView
+        android:id="@+id/back_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"/>
+    <ImageView
+        android:id="@+id/back_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/administrator_80"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

@@ -1,13 +1,16 @@
 package com.example.wsmodule2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 
 import com.example.wsmodule2.Adapters.CardViewPagerAdapter
 import com.example.wsmodule2.Utilities.ChangerAlert
+import kotlinx.android.synthetic.main.activity_cards.*
 
 class CardsActivity : AppCompatActivity() {
 
@@ -34,6 +37,8 @@ class CardsActivity : AppCompatActivity() {
         pager.adapter = CardViewPagerAdapter(applicationContext, StartActivity.cards)
         pager.currentItem = position
 
+        findViewById<Button>(R.id.cards_button1).setOnClickListener { startActivity(Intent(this@CardsActivity, OperationsActivity::class.java)) }
+
         findViewById<Button>(R.id.cards_button2).setOnClickListener {
             ChangerAlert.CreateAlert(this,"Блокировка карты","Вы уверены что хотите заблокировать карту?", "Пароль", "Заблокировать") {
                 diag, id ->
@@ -44,6 +49,10 @@ class CardsActivity : AppCompatActivity() {
             ChangerAlert.CreateAlert(this,"Переименование карты","Введите новое название", "Имя" ) {
                 diag, id ->
             }
+        }
+
+        card_fill_button.setOnClickListener {
+            startActivity(Intent(this@CardsActivity, FillActivity::class.java))
         }
 
     }

@@ -11,15 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VisitActivity"></activity>
-        <activity android:name=".OperationsActivity" />
+        <activity android:name=".TransferActivity"></activity>
+        <activity android:name=".FillActivity" />
+        <activity
+            android:name=".UserAccountsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".VisitActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".OperationsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".InfoActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Utilities.ProfileActivity" />
         <activity
             android:name=".CardsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

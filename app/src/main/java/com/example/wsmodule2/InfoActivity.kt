@@ -17,7 +17,7 @@ class InfoActivity : AppCompatActivity() {
 
         //делает нижнее подчеркивание
         var spannedString = SpannableString(userAgreementTextView.text)
-        spannedString.setSpan(UnderlineSpan(), 25, 6, 0)
+        spannedString.setSpan(UnderlineSpan(), 0, userAgreementTextView.text.length, 0)
         userAgreementTextView.text = spannedString
     }
 }

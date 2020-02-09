@@ -7,6 +7,8 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.example.wsmodule2.R
 import com.example.wsmodule2.Visit
+import com.setContentView
+import kotlinx.android.synthetic.main.view_visit.view.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -27,16 +29,13 @@ class VisitView: RelativeLayout {
 
     private fun init(context: Context, visit: Visit){
 
-        var viewDate = findViewById<TextView>(R.id.visitview_date)
-        var viewTime = findViewById<TextView>(R.id.visitview_time)
+        setContentView(R.layout.view_visit)
 
-        var inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.view_visit, this)
         var dateFormatting : DateFormat = SimpleDateFormat("dd.MM.yyyy")
         var timeFormatting : DateFormat = SimpleDateFormat("hh:mm")
 
-        viewDate.text = dateFormatting.format(visit.date)
-        viewTime.text = timeFormatting.format(visit.date)
+        visitview_date.text = dateFormatting.format(visit.date)
+        visitview_date.text = timeFormatting.format(visit.date)
 
     }
 }
