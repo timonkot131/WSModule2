@@ -29,8 +29,8 @@ class CardsActivity : AppCompatActivity() {
 
         val args = intent.extras
 
-        if (args != null) {
-            position = args.getInt("card_list_index")
+        args?.let {
+            position = it.getInt("card_list_index")
         }
 
         val pager = findViewById<ViewPager>(R.id.card_viewpager)
@@ -52,7 +52,9 @@ class CardsActivity : AppCompatActivity() {
         }
 
         card_fill_button.setOnClickListener {
-            startActivity(Intent(this@CardsActivity, FillActivity::class.java))
+            val intent = Intent(this@CardsActivity, FillActivity::class.java)
+            intent.putExtra("id", position)
+            startActivity(intent)
         }
 
     }

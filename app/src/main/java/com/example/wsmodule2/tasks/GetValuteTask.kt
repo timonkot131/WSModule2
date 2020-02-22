@@ -8,10 +8,12 @@ import com.example.wsmodule2.POJO.CurrencyData
 import com.example.wsmodule2.StartActivity
 import com.google.gson.Gson
 import com.example.wsmodule2.StartActivity.Companion.IP
-import org.apache.http.HttpResponse
-import org.apache.http.client.methods.HttpGet
-import org.apache.http.impl.client.DefaultHttpClient
-import org.apache.http.util.EntityUtils
+import cz.msebera.android.httpclient.HttpResponse
+import cz.msebera.android.httpclient.client.HttpClient
+import cz.msebera.android.httpclient.client.methods.HttpGet
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient
+import cz.msebera.android.httpclient.impl.client.HttpClients
+import cz.msebera.android.httpclient.util.EntityUtils
 
 import org.json.JSONArray
 import org.w3c.dom.Document
@@ -48,35 +50,36 @@ class GetValuteTask(currentDate: Date) : AsyncTask<(List<CurrencyData>) -> Unit,
         try {
 
             //getting values from cb
-            val httpClient = DefaultHttpClient()
+            val httpClient = HttpClients.createDefault()
             val httpGet = HttpGet("http://www.cbr.ru/scripts/XML_daily.asp?date_req=$date")
             val response: HttpResponse = httpClient.execute(httpGet)
             val xml = EntityUtils.toString(response.getEntity())
 
             val factory = DocumentBuilderFactory.newInstance()
-            val builder: DocumentBuilder
-            val `is`: InputSource
-            builder = factory.newDocumentBuilder()
-            `is` = InputSource(StringReader(xml))
+            val builder = factory.newDocumentBuilder()
+
+            val `is` = InputSource(StringReader(xml))
             val doc = builder.parse(`is`)
+
             val list = doc.getElementsByTagName("Valute")
             for (i in 0 until list.length) {
+
                 val node = list.item(i)
                 val nodeList = node.childNodes
                 val key = nodeList.item(1).firstChild.nodeValue
 
                 //replacing ',' to '.' for parsing double
-                val sb = StringBuilder()
-                sb.append(nodeList.item(4).firstChild.nodeValue)
-                var index = sb.indexOf(",")
-                sb.replace(index++, index, ".")
+                val sb = StringBuilder().apply {
+                    append(nodeList.item(4).firstChild.nodeValue)
+                    replace(indexOf(","), indexOf(",") + 1, ".")
+                }
 
                 val value = java.lang.Double.parseDouble(sb.toString())
                 currenciesAndValues[key] = value
             }
 
             //getting values from WS
-            val httpClient2 = DefaultHttpClient()
+            val httpClient2 = HttpClients.createDefault()
             val httpGet2 = HttpGet("http://$IP:3000/valute")
             val response2 = httpClient2.execute(httpGet2)
             val jsonArray = JSONArray(EntityUtils.toString(response2.getEntity()))

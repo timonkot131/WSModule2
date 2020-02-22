@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':sharp-like_view_event'
 rootProject.name='WSModule2'

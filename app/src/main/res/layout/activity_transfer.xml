@@ -5,5 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TransferActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPurple">
+        <include layout="@layout/back_topmenu"/>
+
+        <TextView
+            android:id="@+id/transfer_title"
+            android:layout_below="@+id/back_topmenu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выберите карту получателя"/>
+
+        <RelativeLayout
+            android:id="@+id/transfer_card"
+            android:layout_width="325dp"
+            android:layout_height="130dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/transfer_title"
+            android:background="@drawable/carded_style"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/transfer_cardtitle"
+                android:text="Карта любого банка"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/transfer_cardedittext"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                android:layout_width="280dp"
+                android:textColor="#000"
+                android:background="@drawable/profilebutton_style"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/transfer_card"
+            android:layout_above="@+id/main_bottombar">
+            <LinearLayout
+
+                android:id="@+id/fill_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+        </ScrollView>
+        <include layout="@layout/main_botmenu"/>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

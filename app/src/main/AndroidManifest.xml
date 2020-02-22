@@ -11,8 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TransferActivity"></activity>
-        <activity android:name=".FillActivity" />
+        <activity android:name=".FillTransactActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".TransferActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".FillActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".UserAccountsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

@@ -6,21 +6,19 @@ import android.util.Log;
 import com.example.wsmodule2.CallBacks.OnAuthGetListener;
 import com.example.wsmodule2.StartActivity;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.entity.StringEntity;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.impl.client.HttpClients;
+import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class PostLoginTask extends AsyncTask<OnAuthGetListener, Void, Integer>{
 
@@ -38,14 +36,18 @@ public class PostLoginTask extends AsyncTask<OnAuthGetListener, Void, Integer>{
     protected Integer doInBackground(OnAuthGetListener... onAuthGetListeners) {
         listener = onAuthGetListeners[0];
         try {
-            HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://"+ StartActivity.IP+":3000/login");
+            HttpClient httpClient = HttpClients.createDefault();
 
-            List<NameValuePair> nameValuePairs = new ArrayList<>();
-            nameValuePairs.add(new BasicNameValuePair("login", login));
-            nameValuePairs.add(new BasicNameValuePair("pwd", pwd));
-            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            JSONObject jsonBody = new JSONObject();
+            jsonBody.put("login", login);
+            jsonBody.put("pwd", pwd);
+
+            StringEntity entity = new StringEntity(jsonBody.toString(0));
+            HttpPost httpPost = new HttpPost("http://"+ StartActivity.IP+":3000/login");
+            httpPost.setEntity(entity);
+            httpPost.setHeader("Content-Type", "application/json");
             HttpResponse response = httpClient.execute(httpPost);
+
             if(response.getStatusLine().getStatusCode() == 200){
                 JSONObject jsonObject = new JSONObject(EntityUtils.toString(response.getEntity()));
                 token = jsonObject.getString("token");

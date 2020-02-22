@@ -49,7 +49,6 @@ class MainJavaActivity : AppCompatActivity() {
                     cardData)
             accountView.setBackgroundColor(resources.getColor(R.color.colorWhiteSmoke))
 
-
             accountView.setOnClickListener { v: View? ->
                 val intent = Intent(this@MainJavaActivity, CardsActivity::class.java)
                 intent.putExtra("card_list_index", StartActivity.cards.indexOf(cardData))
@@ -89,7 +88,6 @@ class MainJavaActivity : AppCompatActivity() {
             accountView.setBackgroundColor(resources.getColor(R.color.colorWhiteSmoke))
 
             credit_container.addView(accountView)
-
             credit_container.addSpace(10)
         }
 

@@ -1,11 +1,11 @@
 package com
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.Space
-import com.example.wsmodule2.R
 
 fun RelativeLayout.setContentView(resId: Int){
     val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -22,3 +22,13 @@ fun LinearLayout.addSpace(height: Int){
     space.layoutParams = spaceParams
     addView(space)
 }
+
+fun (((v: View) -> Unit)->Unit).sub(func: (v:View)->Unit){
+}
+
+fun ((v:View)->Unit).subTo(func: ((v: View) -> Unit)->Unit){
+
+}
+//fun ((v: View.OnClickListener)->Unit).sub(func: (v:View)->Unit){
+
+//}

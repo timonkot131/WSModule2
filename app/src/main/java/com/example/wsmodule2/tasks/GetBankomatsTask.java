@@ -27,6 +27,8 @@ public class GetBankomatsTask extends AsyncTask<OnBankomatGetListener, Void, Lis
     protected List<Bankomat> doInBackground(OnBankomatGetListener... onBankomatGetListeners) {
         listener = onBankomatGetListeners[0];
         List<Bankomat> bankomats = new ArrayList<>();
+
+
         try{
             URL url = new URL("http://"+ StartActivity.IP+":3000/bankomats");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

@@ -1,8 +1,11 @@
 package com.example.wsmodule2.POJO;
 
 import android.graphics.Bitmap;
+import android.os.Parcelable;
 
 import com.example.wsmodule2.Abstractions.ICardable;
+
+import java.io.Serializable;
 
 public class AccountData implements ICardable {
     public String code;
@@ -16,7 +19,6 @@ public class AccountData implements ICardable {
         this.type = type;
         this.money = money;
     }
-
 
     @Override
     public Bitmap getImage() {
@@ -40,4 +42,6 @@ public class AccountData implements ICardable {
     public String getType() {
         return type;
     }
+
+
 }
