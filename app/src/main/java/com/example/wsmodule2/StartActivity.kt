@@ -2,7 +2,6 @@ package com.example.wsmodule2
 
 import android.content.DialogInterface
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.ContextThemeWrapper
@@ -16,21 +15,25 @@ import com.example.wsmodule2.POJO.AccountData
 import com.example.wsmodule2.POJO.CardData
 import com.example.wsmodule2.POJO.CurrencyData
 import com.example.wsmodule2.Utilities.GrandToster
-import com.example.wsmodule2.tasks.GetValuteTask
 import com.google.gson.Gson
+import cz.msebera.android.httpclient.HttpResponse
+import cz.msebera.android.httpclient.client.HttpClient
+import cz.msebera.android.httpclient.client.methods.HttpGet
+import cz.msebera.android.httpclient.client.utils.URIBuilder
+import cz.msebera.android.httpclient.impl.client.HttpClients
+import cz.msebera.android.httpclient.util.EntityUtils
 import kotlinx.android.synthetic.main.activity_start.*
 import kotlinx.coroutines.*
-import okhttp3.*
 import org.json.JSONArray
 import org.xml.sax.InputSource
 import sharp_like_view_event.OnClick
 import sharp_like_view_event.plusAssign
 import java.io.StringReader
+import java.net.URI
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.xml.parsers.DocumentBuilderFactory
 import kotlin.collections.ArrayList
-import kotlin.system.measureTimeMillis
 
 class StartActivity : AppCompatActivity(), CoroutineScope by CoroutineScope(Dispatchers.Default) ,OnAuthGetListener {
 
@@ -56,6 +59,8 @@ class StartActivity : AppCompatActivity(), CoroutineScope by CoroutineScope(Disp
         }
 
         start_button.OnClick += ::BuildDialog
+        
+
     }
 
     fun SetValutes() = launch {
@@ -98,28 +103,22 @@ class StartActivity : AppCompatActivity(), CoroutineScope by CoroutineScope(Disp
     }
 
     private fun GetCbrValutes() :HashMap<String, Double>{
-        var client: OkHttpClient = OkHttpClient()
-        var request: Request = Request.Builder()
-                .url(BuildCbrValuteHttpUrl())
-                .get()
-                .build()
+        val client: HttpClient = HttpClients.createDefault()
+        val get: HttpGet = HttpGet(BuildCbrValuteHttpUrl())
 
-        var response : Response = client.newCall(request).execute()
-        var xmlString: String = response.body!!.string()
+        val response : HttpResponse = client.execute(get)
+        val xmlString: String = EntityUtils.toString(response.entity)
 
         return ParseXml(xmlString)
     }
 
     private fun GetWsValutes() : MutableList<CurrencyData>{
 
-        var client: OkHttpClient = OkHttpClient()
-        var request: Request = Request.Builder()
-                .url(BuildWsValuteHttpUrl())
-                .get()
-                .build()
+        val client: HttpClient = HttpClients.createDefault()
+        val get: HttpGet = HttpGet(BuildWsValuteHttpUrl())
 
-        var response : Response = client.newCall(request).execute()
-        var jsonString: String = response.body!!.string()
+        val response : HttpResponse = client.execute(get)
+        val jsonString: String = EntityUtils.toString(response.entity)
 
         return ParseJson(jsonString)
     }
@@ -179,25 +178,24 @@ class StartActivity : AppCompatActivity(), CoroutineScope by CoroutineScope(Disp
         dialog.show()
     }
 
-    fun BuildCbrValuteHttpUrl(): HttpUrl{
+    fun BuildCbrValuteHttpUrl(): URI{
         var time = Calendar.getInstance().time
         val formating : SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
 
-        return HttpUrl.Builder()
-                .scheme("http")
-                .host("www.cbr.ru")
-                .addPathSegment("scripts")
-                .addPathSegment("XML_daily.asp")
-                .addQueryParameter("date", formating.format(time))
+        return URIBuilder()
+                .setScheme("http")
+                .setHost("www.cbr.ru")
+                .setPathSegments("scripts","XML_daily.asp")
+                .addParameter("date", formating.format(time))
                 .build()
     }
 
-    fun BuildWsValuteHttpUrl():HttpUrl{
-        return HttpUrl.Builder()
-                .scheme("http")
-                .host(IP)
-                .port(3000)
-                .addPathSegment("valute")
+    fun BuildWsValuteHttpUrl(): URI {
+       return URIBuilder()
+                .setPathSegments("valute")
+                .setHost(IP)
+                .setScheme("http")
+                .setPort(3000)
                 .build()
     }
 

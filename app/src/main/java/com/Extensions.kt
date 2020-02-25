@@ -24,10 +24,11 @@ fun LinearLayout.addSpace(height: Int){
 }
 
 fun (((v: View) -> Unit)->Unit).sub(func: (v:View)->Unit){
+    this(func)
 }
 
 fun ((v:View)->Unit).subTo(func: ((v: View) -> Unit)->Unit){
-
+    func(this)
 }
 //fun ((v: View.OnClickListener)->Unit).sub(func: (v:View)->Unit){
 

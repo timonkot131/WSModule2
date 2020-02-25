@@ -18,6 +18,7 @@ import com.example.wsmodule2.POJO.CreditData
 import com.example.wsmodule2.StartActivity.Companion.accounts
 import com.example.wsmodule2.StartActivity.Companion.cards
 import com.example.wsmodule2.tasks.DeleteLogoutTask
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainJavaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +32,8 @@ class MainJavaActivity : AppCompatActivity() {
                 40
         )
 
+        
+
         val bmp = BitmapFactory.decodeResource(resources, R.drawable.matercard_96)
         val spaceParams = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -40,6 +43,7 @@ class MainJavaActivity : AppCompatActivity() {
         val card_container = findViewById<LinearLayout>(R.id.main_cards_container)
         val accountContainer = findViewById<LinearLayout>(R.id.main_bills_container)
         val credit_container = findViewById<LinearLayout>(R.id.main_credits_container)
+
 
         //adding cards
         for (i in 0..2) {
